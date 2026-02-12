@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;              
+    overflow-x:hidden;             
+    background:linear-gradient(-45deg,#ff4e50,#ff758c,#ff7eb3,#ff9a9e);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.section{
+    position:absolute;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:25px 20px;
+    transition:0.6s ease;
+}
+
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    pointer-events:none;
+}
+
+h1{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+p{
+    max-width:650px;
+    font-size:1.05rem;
+    line-height:1.6;
+    margin-top:15px;
+}
+
+button{
+    padding:12px 25px;
+    font-size:1rem;
+    border:none;
+    border-radius:30px;
+    margin:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.yesStyle{
+    background:white;
+    color:#ff4e50;
+}
+
+.noStyle{
+    background:#ff1e56;
+    color:white;
+}
+
+.message{
+    opacity:0;
+    transition:0.5s;
+    margin-top:10px;
+}
+
+.showMessage{
+    opacity:1;
+}
+
+.proposal-buttons{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    align-items:center;
+    margin-top:20px;
+}
+
+.memory-container{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.memory-card{
+    background:rgba(255,255,255,0.15);
+    padding:15px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    width:260px;
+}
+
+.memory-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:10px;
+}
+
+.heart{
+    position:absolute;
+    bottom:-20px;
+    font-size:20px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-100vh); opacity:0;}
+}
+
+.firework{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+    animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+    to{
+        transform:translate(var(--x),var(--y));
+        opacity:0;
+    }
+}
+
+@media (max-width:768px){
+
+    h1{
+        font-size:1.6rem;
+    }
+
+    p{
+        font-size:0.95rem;
+        padding:0 10px;
+    }
+
+    .memory-card{
+        width:90%;
+    }
+
+    button{
+        font-size:0.9rem;
+        padding:10px 20px;
+    }
+
+}
+
+@media (min-width:1200px){
+
+    h1{
+        font-size:2.4rem;
+    }
+
+    p{
+        font-size:1.15rem;
+    }
+
+    .memory-card{
+        width:280px;
+    }
+
+}
+</style>
+</head>
+<body>
+
+<div class="section" id="page1">
+    <h1>Are You Ready For A Surprise Chinniiiii....? 🎁</h1>
+    <p>Inka Feb 14 raledu le telsu 😎 but ipude special surprise for you 💕</p>
+    <div>
+        <button class="yesStyle" onclick="nextPage('page2')">Yes I Am 💕</button>
+        <button class="noStyle" onclick="showMessage('msg1')">No 😅</button>
+    </div>
+    <p id="msg1" class="message">
+        Sorry Bujjikonda no option ledu 😂 YES Press Cheyyali Tappadu 😘
+    </p>
+</div>
+
+<div class="section hidden" id="page2">
+    <h1>I’m So Lucky To Have You 💖</h1>
+    <p>Chala mandhi unna sare nuve dorikav naku 😍 I'm really lucky to have you. Alane nen kuda neku alage Dorika anuko 😂, Do You feel that You Are Lucky to Have Me 👀👀😙🐷</p>
+    <div>
+        <button class="yesStyle" onclick="nextPage('page3')">Yesssss 🥰</button>
+        <button class="noStyle" onclick="showMessage('msg2')">Nooouu 😏</button>
+    </div>
+    <p id="msg2" class="message">
+        Baane Extraluu Abaddham cheppaku 😂 Nuv kuda alane feel avtunav adi Naaku Telsu 😎.
+    </p>
+</div>
+
+<div class="section hidden" id="page3">
+    <h1>You Changed My Life 🌍</h1>
+    <p>Nuv vachaka chala change ayyanu ❤️ Full thinking maripoyindi. You are only the one , I think it's Worth Spending Time with Someone. 💕❤️🙃</p>
+    <button class="yesStyle" onclick="nextPage('quiz1')">Next ➡️</button>
+</div>
+
+<div class="section hidden" id="quiz1">
+    <h1>Small Quiz Time 💘</h1>
+    <p>Evarikiii Chinni ante Baagaa Istammm ? 👀😌</p>
+    <div>
+        <button class="yesStyle" onclick="correct1()">Bujjuluuu 😏</button>
+        <button class="yesStyle" onclick="correct1()">Meeee 👀</button>
+        <button class="yesStyle" onclick="correct1()">Suhaannn 😘</button>
+        <button class="yesStyle" onclick="correct1()">Jaanuuu 🙃</button>
+    </div>
+    <p id="quizMsg1" class="message"></p>
+    <button id="quizNext1" class="yesStyle" style="display:none;" onclick="nextPage('quiz2')">
+        Continue 💕
+    </button>
+</div>
+
+<div class="section hidden" id="quiz2">
+    <h1>Second Question 😎</h1>
+    <p>Areee youuu lucky to have meeee?👀👀❤️🙃</p>
+    <div>
+        <button class="noStyle" onclick="wrong2()">No 😅</button>
+        <button class="yesStyle" onclick="correct2()">Yesss 😘</button>
+    </div>
+    <p id="quizMsg2" class="message"></p>
+    <button id="quizNext2" class="yesStyle" style="display:none;" onclick="nextPage('page4')">
+       Continue 💕
+    </button>
+</div>
+
+<div class="section hidden" id="page4">
+    <h1>Our Beautiful Memories 📸</h1>
+
+    <div class="memory-container">
+        <div class="memory-card">
+            <img src="https://res.cloudinary.com/dpl6qncu3/image/upload/v1770902557/kada_rkeklq.jpg">
+            <!-- <img src="https://res.cloudinary.com/dpl6qncu3/image/upload/v1770903373/kada2_gvbfkk.jpg"/> -->
+            <p>First unforgettable memory ❤️</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="https://res.cloudinary.com/dpl6qncu3/image/upload/v1770903090/meh_rffi7y.jpg">
+            <p>That special day I’ll never forget , 1st Time naku okaru Kept 🥰</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="https://res.cloudinary.com/dpl6qncu3/image/upload/v1770903255/hand1_iun2lm.jpg">
+            <p>Chinnii Hand meda chinniii Bomma 💕</p>
+        </div>
+    </div>
+
+    <button class="yesStyle" onclick="nextPage('page5')">Next ➡️</button>
+</div>
+
+<div class="section hidden" id="page5">
+    <h1>No Matter What ❤️</h1>
+    <p>I want you beside me. Ever And Foreverr 🙃💕❤️.</p>
+    <button class="yesStyle" onclick="nextPage('page6')">One Last Thing 💌</button>
+</div>
+
+<div class="section hidden" id="page6">
+    <h1>Will You Be My Valentine? 💍</h1>
+    <p>Feb 14 ki Aithey Baagunuu, Nuv intiki gng kabati repatiki(Friday ki) Avtava 👀👀🙃🙃❤️</p>
+    <div class="proposal-buttons">
+        <button class="yesStyle" onclick="celebrate()">Yes 💖</button>
+        <button class="noStyle" id="noBtn">No 😢</button>
+    </div>
+</div>
+
+<div class="section hidden" id="final">
+    <h1>Love You Chinniluuuuu ❤️✨</h1>
+    <p>Friday Evng FS lo Wait Chestaa 💕🙃😘</p>
+</div>
+
+<script>
+
+function nextPage(id){
+    document.querySelectorAll('.section').forEach(sec=>{
+        sec.classList.add('hidden');
+    });
+    document.getElementById(id).classList.remove('hidden');
+}
+
+function showMessage(id){
+    document.getElementById(id).classList.add('showMessage');
+}
+
+function correct1(){
+    document.getElementById("quizMsg1").innerHTML="Correcttt Bangaram 😘";
+    document.getElementById("quizMsg1").classList.add("showMessage");
+    document.getElementById("quizNext1").style.display="inline-block";
+}
+function wrong1(){
+    document.getElementById("quizMsg1").innerHTML="Wrong 😜 Try again!";
+    document.getElementById("quizMsg1").classList.add("showMessage");
+}
+
+function correct2(){
+    document.getElementById("quizMsg2").innerHTML="Of courseee Adi Naaku Telsuu😎";
+    document.getElementById("quizMsg2").classList.add("showMessage");
+    document.getElementById("quizNext2").style.display="inline-block";
+}
+function wrong2(){
+    document.getElementById("quizMsg2").innerHTML="Baanee Abadhaluu 😏 Malli try!";
+    document.getElementById("quizMsg2").classList.add("showMessage");
+}
+
+function celebrate(){
+    nextPage('final');
+    createFireworks();
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,500);
+
+function createFireworks(){
+    for(let i=0;i<60;i++){
+        const fw=document.createElement("div");
+        fw.classList.add("firework");
+        fw.style.left="50%";
+        fw.style.top="50%";
+        fw.style.setProperty('--x',(Math.random()-0.5)*600+"px");
+        fw.style.setProperty('--y',(Math.random()-0.5)*600+"px");
+        document.body.appendChild(fw);
+        setTimeout(()=>fw.remove(),1000);
+    }
+}
+
+const noBtn = document.getElementById("noBtn");
+let isFloating = false;
+
+function moveNoButton(){
+    const rect = noBtn.getBoundingClientRect();
+
+    if(!isFloating){
+        noBtn.style.position = "fixed";
+        noBtn.style.left = rect.left + "px";
+        noBtn.style.top = rect.top + "px";
+        isFloating = true;
+    }
+
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+    noBtn.style.left = Math.random()*maxX + "px";
+    noBtn.style.top = Math.random()*maxY + "px";
+}
+
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    moveNoButton();
+});
+noBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    moveNoButton();
+});
+
+</script>
+</body>
+</html>
